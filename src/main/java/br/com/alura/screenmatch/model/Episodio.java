@@ -16,14 +16,14 @@ public class Episodio {
         this.numeroEpisodio = dadosEpisodio.numero();
 
         try {
-            this.avaliacao = Double.parseDouble(dadosEpisodio.avaliacao());
-        } catch (NumberFormatException | NullPointerException ex) {
+            this.avaliacao = Double.valueOf(dadosEpisodio.avaliacao());
+        } catch (NumberFormatException ex) {
             this.avaliacao = 0.0;
         }
 
         try {
             this.dataLancamento = LocalDate.parse(dadosEpisodio.dataLancamento());
-        } catch (DateTimeParseException | NullPointerException ex) {
+        } catch (DateTimeParseException ex) {
             this.dataLancamento = null;
         }
     }
@@ -70,11 +70,10 @@ public class Episodio {
 
     @Override
     public String toString() {
-        return "temprorada=" + temporada +
+        return "temporada=" + temporada +
                 ", titulo='" + titulo + '\'' +
                 ", numeroEpisodio=" + numeroEpisodio +
                 ", avaliacao=" + avaliacao +
-                ", dataLancamento=" + dataLancamento;
+                ", dataLancamento=" + dataLancamento ;
     }
-
 }
